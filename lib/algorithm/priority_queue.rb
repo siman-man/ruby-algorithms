@@ -5,7 +5,7 @@ module Algorithm
     def initialize(order: :asc)
       @size = 0
       @nodes = []
-      @operator = (order == :asc)? [:>, :<] : [:<, :>]
+      @operator = (order == :asc) ? [:>, :<] : [:<, :>]
     end
 
     def empty?
@@ -35,6 +35,7 @@ module Algorithm
 
       @size += 1
     end
+
     alias_method :<<, :push
 
     def pop
@@ -48,18 +49,29 @@ module Algorithm
 
         if @nodes[left].nil? && @nodes[right].nil?
           break
-        elsif @nodes[right].nil? && @nodes[left]
-          @nodes[index], @nodes[left] = @nodes[left], @nodes[index]
-          index = left
-        elsif @nodes[left].nil? && @nodes[right]
-          @nodes[index], @nodes[right] = @nodes[right], @nodes[index]
-          index = right
-        elsif (@nodes[left].last <=> @nodes[right].last).public_send(@operator.last, 0)
-          @nodes[index], @nodes[left] = @nodes[left], @nodes[index]
-          index = left
-        else
-          @nodes[index], @nodes[right] = @nodes[right], @nodes[index]
-          index = right
+        elsif @nodes[left] && @nodes[right]
+          target = (@nodes[left].last <=> @nodes[right].last).public_send(@operator.last, 0) ? left : right
+
+          if (@nodes[target].last <=> @nodes[index].last).public_send(@operator.last, 0)
+            @nodes[index], @nodes[target] = @nodes[target], @nodes[index]
+            index = target
+          else
+            break
+          end
+        elsif @nodes[left]
+          if (@nodes[left].last <=> @nodes[index].last).public_send(@operator.last, 0)
+            @nodes[index], @nodes[left] = @nodes[left], @nodes[index]
+            index = left
+          else
+            break
+          end
+        elsif @nodes[right]
+          if (@nodes[right].last <=> @nodes[index].last).public_send(@operator.last, 0)
+            @nodes[index], @nodes[right] = @nodes[right], @nodes[index]
+            index = right
+          else
+            break
+          end
         end
       }
 
