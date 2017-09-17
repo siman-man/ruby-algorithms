@@ -47,31 +47,23 @@ module Algorithm
         left = 2*index+1
         right = 2*index+2
 
-        if @nodes[left].nil? && @nodes[right].nil?
-          break
-        elsif @nodes[left] && @nodes[right]
-          target = (@nodes[left].last <=> @nodes[right].last).public_send(@operator.last, 0) ? left : right
+        target = if @nodes[left] && @nodes[right]
+                   target = (@nodes[left].last <=> @nodes[right].last).public_send(@operator.last, 0) ? left : right
+                 elsif @nodes[left]
+                   target = left
+                 elsif @nodes[right]
+                   target = right
+                 else
+                   nil
+                 end
 
-          if (@nodes[target].last <=> @nodes[index].last).public_send(@operator.last, 0)
-            @nodes[index], @nodes[target] = @nodes[target], @nodes[index]
-            index = target
-          else
-            break
-          end
-        elsif @nodes[left]
-          if (@nodes[left].last <=> @nodes[index].last).public_send(@operator.last, 0)
-            @nodes[index], @nodes[left] = @nodes[left], @nodes[index]
-            index = left
-          else
-            break
-          end
-        elsif @nodes[right]
-          if (@nodes[right].last <=> @nodes[index].last).public_send(@operator.last, 0)
-            @nodes[index], @nodes[right] = @nodes[right], @nodes[index]
-            index = right
-          else
-            break
-          end
+        break if target.nil?
+
+        if (@nodes[target].last <=> @nodes[index].last).public_send(@operator.last, 0)
+          @nodes[index], @nodes[target] = @nodes[target], @nodes[index]
+          index = target
+        else
+          break
         end
       }
 
