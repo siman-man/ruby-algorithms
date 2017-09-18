@@ -2,9 +2,9 @@ RSpec.describe Algorithm do
   context "Graph" do
     it "#graph" do
       list = [
-        [nil, 1, nil],
-        [1, nil, 1],
-        [1, 1, nil]
+        [0, 1, nil],
+        [1, 0, 1],
+        [1, 1, 0]
       ]
 
       expect = [
