@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "algorithm-ruby"
   spec.version       = Algorithm::VERSION
   spec.authors       = ["siman-man"]
-  spec.email         = ["k128585@ie.u-ryukyu.ac.jp"]
+  spec.email         = ["tmshuichi@gmail.com"]
 
   spec.summary       = %q{algorithm library}
   spec.description   = %q{algorithm library}
