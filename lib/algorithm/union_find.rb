@@ -26,7 +26,7 @@ module Algorithm
       @size[x] += @size[y]
     end
 
-    def same(x, y)
+    def same?(x, y)
       find(x) == find(y)
     end
 
