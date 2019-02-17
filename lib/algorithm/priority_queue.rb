@@ -20,7 +20,7 @@ module Algorithm
         @nodes[index] = node
 
         loop {
-          parent = (index-1)/2
+          parent = (index - 1) / 2
 
           if (@nodes[parent].last <=> node.last).public_send(@operator.first, 0)
             @nodes[index], @nodes[parent] = @nodes[parent], @nodes[index]
@@ -44,8 +44,8 @@ module Algorithm
       index = 0
 
       loop {
-        left = 2*index+1
-        right = 2*index+2
+        left = 2 * index + 1
+        right = 2 * index + 2
 
         target = if @nodes[left] && @nodes[right]
                    target = (@nodes[left].last <=> @nodes[right].last).public_send(@operator.last, 0) ? left : right
