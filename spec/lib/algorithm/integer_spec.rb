@@ -5,6 +5,7 @@ RSpec.describe Algorithm do
       it { expect(4.combination(0)).to eq(1) }
       it { expect(10.combination(5)).to eq(252) }
       it { expect(20.combination(5)).to eq(15504) }
+      it { expect { Timeout.timeout(1) { 100008.combination(9) } }.not_to raise_error }
     end
 
     describe '#factorial' do

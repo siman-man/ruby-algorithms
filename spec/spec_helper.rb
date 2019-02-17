@@ -1,5 +1,6 @@
-require "bundler/setup"
-require "algorithm"
+require 'bundler/setup'
+require 'algorithm'
+require 'timeout'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

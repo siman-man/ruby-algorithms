@@ -1,6 +1,8 @@
 class Integer
   def combination(k)
-    factorial / (k.factorial * (self-k).factorial)
+    return 1 if k.zero?
+
+    (self - k + 1..self).inject(&:*) / k.factorial
   end
 
   def permutation(k)
