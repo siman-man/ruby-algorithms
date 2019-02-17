@@ -2,13 +2,13 @@ class Integer
   def combination(k)
     return 1 if k.zero?
 
-    (self - k + 1..self).inject(&:*) / k.factorial
+    (self - k + 1..self).inject(:*) / k.factorial
   end
 
   def permutation(k)
     return 1 if k.zero?
 
-    (self - k + 1..self).inject(&:*)
+    (self - k + 1..self).inject(:*)
   end
 
   def factorial
