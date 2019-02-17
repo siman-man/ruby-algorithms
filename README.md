@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/siman-man/algorithm-ruby.svg?branch=master)](https://travis-ci.org/siman-man/algorithm-ruby)
+[![Build Status](https://travis-ci.org/siman-man/ruby-algorithms.svg?branch=master)](https://travis-ci.org/siman-man/ruby-algorithms)
 
 # Algorithm::Ruby
 
