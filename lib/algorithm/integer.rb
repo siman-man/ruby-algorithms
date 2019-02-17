@@ -6,7 +6,9 @@ class Integer
   end
 
   def permutation(k)
-    factorial / (self-k).factorial
+    return 1 if k.zero?
+
+    (self - k + 1..self).inject(&:*)
   end
 
   def factorial

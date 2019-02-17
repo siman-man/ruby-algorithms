@@ -16,6 +16,7 @@ RSpec.describe Algorithm do
     describe '#permutation' do
       it { expect(3.permutation(2)).to eq(6) }
       it { expect(20.permutation(5)).to eq(1860480) }
+      it { expect { Timeout.timeout(1) { 100008.permutation(9) } }.not_to raise_error }
     end
   end
 end
