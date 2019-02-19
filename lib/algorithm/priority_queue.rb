@@ -48,11 +48,11 @@ module Algorithm
         right = 2 * index + 2
 
         target = if @nodes[left] && @nodes[right]
-                   target = (@nodes[left].last <=> @nodes[right].last).public_send(@operator.last, 0) ? left : right
+                   (@nodes[left].last <=> @nodes[right].last).public_send(@operator.last, 0) ? left : right
                  elsif @nodes[left]
-                   target = left
+                   left
                  elsif @nodes[right]
-                   target = right
+                   right
                  else
                    nil
                  end
