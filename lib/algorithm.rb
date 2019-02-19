@@ -1,6 +1,7 @@
 require 'algorithm/array'
 require 'algorithm/enumerable'
+require 'algorithm/graph/array'
 require 'algorithm/integer'
 require 'algorithm/priority_queue'
+require 'algorithm/string'
 require 'algorithm/union_find'
-require 'algorithm/graph/array'
