@@ -19,5 +19,12 @@ RSpec.describe Algorithm do
       it { expect(20.permutation(5)).to eq(1860480) }
       it { expect { Timeout.timeout(1) { 100008.permutation(9) } }.not_to raise_error }
     end
+
+    describe '#divisor_list' do
+      it { expect(0.divisor_list).to eq([]) }
+      it { expect(1.divisor_list).to eq([1]) }
+      it { expect(24.divisor_list).to eq([1, 2, 3, 4, 6, 8, 12, 24]) }
+      it { expect(372.divisor_list).to eq([1, 2, 3, 4, 6, 12, 31, 62, 93, 124, 186, 372]) }
+    end
   end
 end

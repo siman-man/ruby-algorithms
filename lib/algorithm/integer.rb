@@ -16,4 +16,16 @@ class Integer
 
     (1..self).inject(:*)
   end
+
+  def divisor_list
+    require 'prime'
+
+    return [] if self <= 0
+    return [1] if self == 1
+
+    prime_division.map.with_index { |(base, k), i|
+      s = i.zero? ? 0 : 1
+      (s..k).map { |n| base ** n }
+    }.inject { |res, e| res + res.flat_map { |t| e.map { |v| t * v } } }.sort
+  end
 end
