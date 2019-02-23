@@ -1,7 +1,7 @@
 module Algorithm
   class UnionFind
     def initialize(n)
-      @size = Array.new(n, 1)
+      @size = Array.new(n + 1, 1)
       @parent = []
 
       n.times do |i|
