@@ -1,8 +1,3 @@
-require 'algorithm/array'
-require 'algorithm/enumerable'
-require 'algorithm/graph/array'
-require 'algorithm/integer'
-require 'algorithm/priority_queue'
-require 'algorithm/string'
-require 'algorithm/union_find'
-require 'algorithm/binary_index_tree'
+Dir[File.join(__dir__, '**/*.rb')].each do |f|
+  require f
+end
