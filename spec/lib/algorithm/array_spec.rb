@@ -27,5 +27,12 @@ RSpec.describe Algorithm do
         expect(list2.lis).to eq(5)
       end
     end
+
+    describe '#inversion_number' do
+      it do
+        list = [3, 1, 4, 2]
+        expect(list.inversion_number).to eq(3)
+      end
+    end
   end
 end

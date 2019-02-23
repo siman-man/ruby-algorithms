@@ -25,4 +25,21 @@ class Array
 
     dp.bsearch_index { |x| x >= Float::INFINITY } || size
   end
+
+  def inversion_number
+    cnt = 0
+    n = size
+    bit = BinaryIndexTree.new(n)
+
+    order = uniq.sort.map.with_index(1) do |v, i|
+      [v, i]
+    end.to_h
+
+    n.times do |j|
+      cnt += j - bit.sum(order[at(j)])
+      bit.add(order[at(j)], 1)
+    end
+
+    cnt
+  end
 end
