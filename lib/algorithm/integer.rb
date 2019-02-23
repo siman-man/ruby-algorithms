@@ -28,4 +28,8 @@ class Integer
       (s..k).map { |n| base ** n }
     }.inject { |res, e| res + res.flat_map { |t| e.map { |v| t * v } } }.sort
   end
+
+  def repeated_combination(k)
+    (k + self - 1).combination(k)
+  end
 end

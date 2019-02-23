@@ -26,5 +26,11 @@ RSpec.describe Algorithm do
       it { expect(24.divisor_list).to eq([1, 2, 3, 4, 6, 8, 12, 24]) }
       it { expect(372.divisor_list).to eq([1, 2, 3, 4, 6, 12, 31, 62, 93, 124, 186, 372]) }
     end
+
+    describe '#repeated_combination' do
+      it { expect(2.repeated_combination(1)).to eq(2) }
+      it { expect(10.repeated_combination(3)).to eq(220) }
+      it { expect(20.repeated_combination(5)).to eq(42504) }
+    end
   end
 end
