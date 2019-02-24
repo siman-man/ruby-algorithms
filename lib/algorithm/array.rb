@@ -42,4 +42,12 @@ class Array
 
     cnt
   end
+
+  def upper_bound(x)
+    bsearch_index { |v| v > x }
+  end
+
+  def lower_bound(x)
+    bsearch_index { |v| v >= x }
+  end
 end

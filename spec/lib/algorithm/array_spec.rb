@@ -34,5 +34,29 @@ RSpec.describe Algorithm do
         expect(list.inversion_number).to eq(3)
       end
     end
+
+    describe '#upper_bound' do
+      it do
+        list = [2, 2, 5, 5, 9]
+
+        expect(list.upper_bound(2)).to eq(2)
+        expect(list.upper_bound(4)).to eq(2)
+        expect(list.upper_bound(5)).to eq(4)
+        expect(list.upper_bound(7)).to eq(4)
+        expect(list.upper_bound(100)).to eq(nil)
+      end
+    end
+
+    describe '#lower_bound' do
+      it do
+        list = [2, 2, 5, 5, 9]
+
+        expect(list.lower_bound(2)).to eq(0)
+        expect(list.lower_bound(4)).to eq(2)
+        expect(list.lower_bound(5)).to eq(2)
+        expect(list.lower_bound(7)).to eq(4)
+        expect(list.lower_bound(100)).to eq(nil)
+      end
+    end
   end
 end
