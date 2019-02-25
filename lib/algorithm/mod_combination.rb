@@ -23,5 +23,9 @@ module Algorithm
 
       fac[n] * (finv[k] * finv[n - k] % mod) % mod
     end
+
+    def repeated_combination(n, k)
+      combination(n + k - 1, k)
+    end
   end
 end
