@@ -3,6 +3,7 @@ RSpec.describe Algorithm do
     describe '#combination' do
       it { expect(4.combination(1)).to eq(4) }
       it { expect(4.combination(0)).to eq(1) }
+      it { expect(4.combination(5)).to eq(0) }
       it { expect(10.combination(5)).to eq(252) }
       it { expect(20.combination(5)).to eq(15504) }
       it { expect { Timeout.timeout(1) { 100008.combination(9) } }.not_to raise_error }
