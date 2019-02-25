@@ -2,6 +2,7 @@ module Algorithm
   class UnionFind
     def initialize(n)
       @size = Array.new(n + 1, 1)
+      @rank = Array.new(n + 1, 0)
       @parent = []
 
       n.times do |i|
@@ -22,7 +23,14 @@ module Algorithm
       y = find(y)
       return if x == y
 
-      @parent[y] = x
+      if @rank[x] < @rank[y]
+        @parent[x] = y
+      else
+        @parent[y] = x
+
+        @rank[x] += 1 if @rank[x] == @rank[y]
+      end
+
       @size[x] += @size[y]
     end
 
