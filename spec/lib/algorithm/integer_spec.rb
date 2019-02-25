@@ -37,5 +37,9 @@ RSpec.describe Algorithm do
       it { expect(2.mod_pow(0, 10 ** 9 + 7)).to eq(1) }
       it { expect(2.mod_pow(100, 10 ** 9 + 7)).to eq(976371285) }
     end
+
+    describe '#mod_inverse' do
+      it { expect(2.mod_inverse(3)).to eq(2) }
+    end
   end
 end

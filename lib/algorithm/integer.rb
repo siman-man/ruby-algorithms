@@ -45,4 +45,8 @@ class Integer
 
     res
   end
+
+  def mod_inverse(mod)
+    mod_pow(mod - 2, mod)
+  end
 end
