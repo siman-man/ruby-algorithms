@@ -7,7 +7,8 @@ class Array
     v.times do |k|
       v.times do |i|
         v.times do |j|
-          dist[i][j] = [dist[i][j], dist[i][k] + dist[k][j]].min
+          cost = dist[i][k] + dist[k][j]
+          dist[i][j] = cost if dist[i][j] > cost
         end
       end
     end
