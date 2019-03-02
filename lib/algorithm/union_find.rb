@@ -5,7 +5,7 @@ module Algorithm
       @rank = Array.new(n + 1, 0)
       @parent = []
 
-      n.times do |i|
+      (0..n).each do |i|
         @parent[i] = i
       end
     end
