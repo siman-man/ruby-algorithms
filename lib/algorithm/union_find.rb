@@ -25,13 +25,13 @@ module Algorithm
 
       if @rank[x] < @rank[y]
         @parent[x] = y
+        @size[y] += @size[x]
       else
         @parent[y] = x
+        @size[x] += @size[y]
 
         @rank[x] += 1 if @rank[x] == @rank[y]
       end
-
-      @size[x] += @size[y]
     end
 
     def same?(x, y)
@@ -75,14 +75,14 @@ module Algorithm
       if @rank[x] < @rank[y]
         @diff_weight[x] = -w
         @parent[x] = y
+        @size[y] += @size[x]
       else
         @parent[y] = x
         @diff_weight[y] = w
+        @size[x] += @size[y]
 
         @rank[x] += 1 if @rank[x] == @rank[y]
       end
-
-      @size[x] += @size[y]
     end
 
     def weight(x)
