@@ -42,5 +42,14 @@ RSpec.describe Algorithm do
     describe '#mod_inverse' do
       it { expect(2.mod_inverse(3)).to eq(2) }
     end
+
+    describe '#cumulative_bit_count' do
+      it { expect(-1.cumulative_bit_count).to eq([]) }
+      it { expect(0.cumulative_bit_count).to eq([0]) }
+      it { expect(1.cumulative_bit_count).to eq([1, 0]) }
+      it { expect(2.cumulative_bit_count).to eq([1, 1]) }
+      it { expect(10.cumulative_bit_count).to eq([5, 5, 4, 3]) }
+      it { expect(100.cumulative_bit_count).to eq([50, 50, 49, 48, 48, 37, 37]) }
+    end
   end
 end

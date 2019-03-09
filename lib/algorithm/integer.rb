@@ -49,4 +49,20 @@ class Integer
   def mod_inverse(mod)
     mod_pow(mod - 2, mod)
   end
+
+  def cumulative_bit_count
+    n = self + 1
+    return [] if n <= 0
+
+    l = n.to_s(2).size
+    ret = []
+
+    l.times do |i|
+      s = 1 << i
+      t = 1 << (i + 1)
+      ret[i] = s * (n / t) + [n % t - s, 0].max
+    end
+
+    ret
+  end
 end
