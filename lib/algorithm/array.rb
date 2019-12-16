@@ -6,8 +6,10 @@ class Array
 
     v.times do |k|
       v.times do |i|
+        before_cost = dist[i][k]
+
         v.times do |j|
-          cost = dist[i][k] + dist[k][j]
+          cost = before_cost + dist[k][j]
           dist[i][j] = cost if dist[i][j] > cost
         end
       end
