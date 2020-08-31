@@ -1,4 +1,4 @@
-class Heap
+class MinHeap
   attr_reader :size
 
   def initialize
@@ -7,7 +7,7 @@ class Heap
   end
 
   def empty?
-    @size.zero?
+    size.zero?
   end
 
   def push(val)
@@ -26,15 +26,14 @@ class Heap
     @heap[index] = val
   end
 
-  alias_method :<<, :push
-
   def pop
     val = @heap.first
     root = @heap[size - 1]
+    @heap[size - 1] = nil
     @size -= 1
     index = 0
 
-    while index * 2 + 1 < @size
+    while index * 2 + 1 < size
       left = 2 * index + 1
       right = left + 1
 
