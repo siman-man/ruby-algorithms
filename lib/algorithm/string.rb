@@ -81,4 +81,9 @@ class String
 
     result
   end
+
+  def next_alpha(n)
+    b = self.ord - 97
+    (97 + (n + b) % 26).chr
+  end
 end
