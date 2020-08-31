@@ -33,7 +33,7 @@ class Array
   def inversion_number
     cnt = 0
     n = size
-    bit = BinaryIndexTree.new(n)
+    bit = BinaryIndexTree.new(n + 1)
 
     order = uniq.sort.map.with_index(1) do |v, i|
       [v, i]
