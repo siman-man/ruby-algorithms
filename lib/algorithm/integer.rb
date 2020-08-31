@@ -66,6 +66,20 @@ class Integer
     ret
   end
 
+  def bit_combination
+    mask = self
+
+    res = []
+
+    while mask > 0
+      res << mask
+
+      mask = (mask - 1) & self
+    end
+
+    res
+  end
+
   # 正整数 n に対する互いに素である 1 以上 n 以下の自然数の個数を求める
   def totient_function
     require 'prime'
