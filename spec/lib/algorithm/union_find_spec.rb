@@ -1,6 +1,6 @@
-RSpec.describe Algorithm::UnionFind do
+RSpec.describe UnionFind do
   it 'simple test' do
-    uf = Algorithm::UnionFind.new(5)
+    uf = UnionFind.new(5)
 
     expect(uf.size(1)).to eq(1)
 
