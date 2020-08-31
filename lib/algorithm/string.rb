@@ -46,4 +46,39 @@ class String
 
     dp[n][m]
   end
+
+  def contain_points(str)
+    l1 = size
+    l2 = str.size
+
+    return [] if l1 < l2
+
+    base = 10 ** 9 + 7
+    t = 1
+    l2.times { t *= base }
+    cp = codepoints
+
+    h1 = 0
+    h2 = 0
+
+    l2.times do |i|
+      h1 = h1 * base + cp[i]
+      h2 = h2 * base + str[i].ord
+    end
+
+    i = 0
+    result = []
+
+    while i + l2 <= l1
+      result << i if h1 == h2
+
+      if i + l2 < l1
+        h1 = h1 * base + cp[i + l2] - cp[i] * t
+      end
+
+      i += 1
+    end
+
+    result
+  end
 end
