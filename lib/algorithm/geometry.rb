@@ -73,6 +73,10 @@ module Geometry
     Rational(Math::PI * r * r * h, 3)
   end
 
+  def triangle_area(p1, p2, p3)
+    Rational(((p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)).abs, 2)
+  end
+
   def get_circle_cross_point(c1, c2)
     d = abs(c1.c - c2.c)
     return [] if c1.r + d < c2.r
