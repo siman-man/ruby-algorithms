@@ -16,6 +16,7 @@ module Geometry
     end
   end
 
+  Circle = Struct.new(:c, :r)
   Line = Struct.new(:p1, :p2)
 
   def norm(v)
@@ -32,6 +33,14 @@ module Geometry
 
   def cross(v1, v2)
     v1.x * v2.y - v1.y * v2.x
+  end
+
+  def arg(v)
+    Math.atan2(v.y, v.x)
+  end
+
+  def polar(a, r)
+    Point(Math.cos(r) * a, Math.sin(r) * a)
   end
 
   def ccw(p0, p1, p2)
@@ -62,5 +71,13 @@ module Geometry
 
   def cone_volume(r, h)
     Rational(Math::PI * r * r * h, 3)
+  end
+
+  def get_circle_cross_point(c1, c2)
+    d = abs(c1.c - c2.c)
+    return [] if c1.r + d < c2.r
+    a = Math.acos(Rational(c1.r ** 2 + d ** 2 - c2.r ** 2, 2 * c1.r * d))
+    t = arg(c2.c - c1.c)
+    [c1.c + polar(c1.r, t + a), c1.c + polar(c1.r, t - a)]
   end
 end
