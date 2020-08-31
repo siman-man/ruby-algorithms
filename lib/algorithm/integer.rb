@@ -65,4 +65,16 @@ class Integer
 
     ret
   end
+
+  # 正整数 n に対する互いに素である 1 以上 n 以下の自然数の個数を求める
+  def totient_function
+    require 'prime'
+    r = 1
+
+    self.prime_division.each do |e, n|
+      r *= (1 - Rational(1, e))
+    end
+
+    (self * r).to_i
+  end
 end
