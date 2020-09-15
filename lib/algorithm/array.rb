@@ -61,12 +61,12 @@ class Array
     ret = map(&:dup)
 
     0.upto(n - 1) do |i|
-      0.upto(n - 1) do |j|
+      1.upto(n - 1) do |j|
         ret[i][j] += ret[i][j - 1]
       end
     end
 
-    0.upto(n - 1) do |i|
+    1.upto(n - 1) do |i|
       0.upto(n - 1) do |j|
         ret[i][j] += ret[i - 1][j]
       end
