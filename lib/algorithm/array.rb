@@ -56,18 +56,19 @@ class Array
   end
 
   def imos
-    n = size
+    h = size
+    w = self[0].size
 
     ret = map(&:dup)
 
-    0.upto(n - 1) do |i|
-      1.upto(n - 1) do |j|
+    0.upto(h - 1) do |i|
+      1.upto(w - 1) do |j|
         ret[i][j] += ret[i][j - 1]
       end
     end
 
-    1.upto(n - 1) do |i|
-      0.upto(n - 1) do |j|
+    1.upto(h - 1) do |i|
+      0.upto(w - 1) do |j|
         ret[i][j] += ret[i - 1][j]
       end
     end
