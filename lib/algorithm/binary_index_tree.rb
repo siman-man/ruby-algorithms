@@ -1,26 +1,36 @@
 class BinaryIndexTree
-  attr_reader :bit, :size
-
   def initialize(size, init: 0)
-    @bit = Array.new(size + 1, init)
+    @values = Array.new(size, init)
     @size = size
   end
 
-  def sum(i)
-    s = 0
+  # @param idx [Integer]
+  # @param x [Numeric]
+  def add(idx, x)
+    raise 'Out of range reference' if @size <= idx
 
-    while i > 0
-      s += bit[i]
-      i -= i & -i
+    idx += 1
+
+    while idx <= @size
+      @values[idx - 1] += x
+      idx += idx & -idx
     end
-
-    s
   end
 
-  def add(i, x)
-    while i <= size
-      bit[i] += x
-      i += i & -i
+  def sum(l, r)
+    _sum(r) - _sum(l)
+  end
+
+  private
+
+  def _sum(idx)
+    res = 0
+
+    while idx > 0
+      res += @values[idx - 1]
+      idx -= idx & -idx
     end
+
+    res
   end
 end
