@@ -51,21 +51,8 @@ class Integer
     (k + self - 1).combination(k)
   end
 
-  def mod_pow(n, mod)
-    x = self
-    res = 1
-
-    while n > 0
-      res = res * x % mod if n[0] == 1
-      x = x * x % mod
-      n >>= 1
-    end
-
-    res
-  end
-
   def mod_inverse(mod)
-    mod_pow(mod - 2, mod)
+    self.pow(mod - 2, mod)
   end
 
   def cumulative_bit_count
