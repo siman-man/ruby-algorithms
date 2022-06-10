@@ -40,7 +40,7 @@ class Array
     end.to_h
 
     n.times do |j|
-      cnt += j - bit.sum(order[at(j)])
+      cnt += j - bit.sum(0, order[at(j)])
       bit.add(order[at(j)], 1)
     end
 
