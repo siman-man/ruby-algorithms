@@ -1,4 +1,22 @@
 class Integer
+  def self.lucas(m, n, mod)
+    ms = m.to_s(mod)
+    ns = n.to_s(mod)
+    len = [ms.size, ns.size].max
+
+    res = 1
+
+    len.times do |i|
+      a = ms[i].to_i
+      b = ns[i].to_i
+
+      res *= a.combination(b)
+      res %= mod
+    end
+
+    res
+  end
+
   def combination(k)
     return 1 if k.zero?
 
@@ -78,6 +96,11 @@ class Integer
     end
 
     res
+  end
+
+  def mod_max(a, d)
+    g = self.gcd(d)
+    self - g + a % self
   end
 
   # 正整数 n に対する互いに素である 1 以上 n 以下の自然数の個数を求める
